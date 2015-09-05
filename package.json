@@ -2,10 +2,13 @@
   "name": "denim",
   "version": "0.0.1",
   "description": "A simple terminal interface for connecting to bluetooth audio using bluez",
-  "main": "index.js",
+  "main": "denim",
   "scripts": {
     "lint": "standard",
     "pretest": "npm run lint"
+  },
+  "bin": {
+    "denim": "denim"
   },
   "repository": {
     "type": "git",
