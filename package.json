@@ -5,7 +5,8 @@
   "main": "denim",
   "scripts": {
     "lint": "standard",
-    "pretest": "npm run lint"
+    "pretest": "npm run lint",
+    "test": "mocha -R spec --recursive ./test"
   },
   "bin": {
     "denim": "denim"
@@ -20,11 +21,16 @@
     "url": "https://github.com/benjaminparnell/denim/issues"
   },
   "homepage": "https://github.com/benjaminparnell/denim",
+  "standard": {
+    "global": [ "describe", "it", "before", "beforeAll", "after", "afterAll" ]
+  },
   "dependencies": {
     "async": "^1.4.2",
     "blessed": "^0.1.81"
   },
   "devDependencies": {
+    "mocha": "^2.3.0",
+    "rewire": "^2.3.4",
     "standard": "^5.2.1"
   }
 }
