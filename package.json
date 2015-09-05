@@ -1,0 +1,27 @@
+{
+  "name": "denim",
+  "version": "0.0.0",
+  "description": "A simple terminal interface for connecting to bluetooth audio using bluez",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "pretest": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:benjaminparnell/denim"
+  },
+  "author": "Ben Parnell <benjaminparnell.94@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benjaminparnell/denim/issues"
+  },
+  "homepage": "https://github.com/benjaminparnell/denim",
+  "dependencies": {
+    "async": "^1.4.2",
+    "blessed": "^0.1.81"
+  },
+  "devDependencies": {
+    "standard": "^5.2.1"
+  }
+}
