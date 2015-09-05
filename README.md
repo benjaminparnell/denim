@@ -1,5 +1,4 @@
-# denim [![Build
-Status](https://travis-ci.org/benjaminparnell/denim.svg?branch=master)](https://travis-ci.org/benjaminparnell/denim)
+# denim [![Build Status](https://travis-ci.org/benjaminparnell/denim.svg?branch=master)](https://travis-ci.org/benjaminparnell/denim)
 
 :construction:**This is a work in progress**:construction:
 
