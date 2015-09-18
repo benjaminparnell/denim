@@ -67,6 +67,8 @@ function onListSelect (el, selected) {
     connectToSink.bind(null, macAddress)
   ], function (err) {
     if (err) throw err
+    el.style.bg = 'green'
+    el.render()
     loader.stop()
   })
 }
@@ -74,7 +76,7 @@ function onListSelect (el, selected) {
 screen.append(list)
 
 screen.key(['escape', 'q', 'C-c'], function (ch, key) {
-  return process.exit(0)
+  process.exit(0)
 })
 
 fetchDeviceList(function (err, devices) {
