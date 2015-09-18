@@ -5,6 +5,7 @@ var async = require('async')
 var connectToSink = require('./lib/connect-to-sink')
 var getMacFromBluezOutput = require('./lib/get-mac-from-bluez-output')
 var fetchDeviceList = require('./lib/fetch-device-list')
+var parseError = require('./lib/parse-error')
 
 var screen = blessed.screen({
   smartCSR: true
@@ -61,22 +62,47 @@ function onListSelect (el, selected) {
   var name = el.getText()
   var macAddress = getMacFromBluezOutput(name)
 
+  loader.render()
   loader.load('Connecting to ' + name)
 
   async.series([
     connectToSink.bind(null, macAddress)
   ], function (err) {
-    if (err) throw err
-    el.style.bg = 'green'
-    el.render()
+    if (err) {
+      err = parseError(err)
+      promptError(err)
+    } else {
+      el.style.bg = 'green'
+      el.render()
+    }
     loader.stop()
   })
+}
+
+function promptError (err) {
+  var message = blessed.message({
+    parent: screen,
+    border: {
+      type: 'line',
+      bg: '1'
+    }
+  })
+  message.render()
+  message.error(err, 3, function () {})
 }
 
 screen.append(list)
 
 screen.key(['escape', 'q', 'C-c'], function (ch, key) {
   process.exit(0)
+})
+
+screen.key(['r', 'R'], function (ch, key) {
+  fetchDeviceList(function (err, devices) {
+    if (err) throw err
+    list.setItems(devices)
+    list.select(0)
+  })
 })
 
 fetchDeviceList(function (err, devices) {

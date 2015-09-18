@@ -12,9 +12,7 @@ messaging it should have. But it does do that.
 
 ## Planned features
 
-* Better messaging and error handling
 * Automatically pour all inputs into the newly connected sink
-* Add the ability to refresh the list of devices with `r`
 * Possibly add the ability to connect to new devices (might be a bit out of
 scope)
 
